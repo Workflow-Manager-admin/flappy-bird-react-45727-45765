@@ -1,0 +1,185 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.canvas-wrapper {
+  position: relative;
+  width: 360px;
+  max-width: 95vw;
+  aspect-ratio: 9/13;
+  margin: auto;
+  background: var(--bg-primary, #fff);
+  box-shadow: 0 4px 24px 0 rgba(30, 144, 255, 0.15), 0 0 0 2px #e9ecef;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.game-canvas {
+  width: 100%;
+  height: auto;
+  background: transparent;
+  outline: none;
+  display: block;
+  border-radius: 28px;
+  transition: box-shadow 0.1s ease;
+}
+
+.game-canvas.gameover {
+  filter: blur(1.5px) grayscale(20%);
+  opacity: 0.88;
+}
+
+/* Overlay UI: Instructions and Game Over */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(250,250,255,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  border-radius: 28px;
+}
+
+.getready-panel, .gameover-panel {
+  background: #fff8f2;
+  border: 2px solid #ff5722;
+  box-shadow: 0 2px 20px 0 rgba(255, 87, 34, 0.09);
+  border-radius: 18px;
+  padding: 2.5rem 1.75rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.getready-title {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 1.36rem;
+  color: #ff5722;
+  margin-bottom: 0.5em;
+  text-shadow: 0 3px 12px #ffe0b2aa;
+}
+
+.gameover-title {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 2rem;
+  color: #1e90ff;
+  margin-bottom: 0.55em;
+  text-shadow: 0 2px 14px #b6e2ff99;
+}
+
+.score-section {
+  margin-bottom: 1.2em;
+  color: #ff5722;
+  font-weight: 700;
+  font-size: 1.19rem;
+}
+.score-section strong {
+  color: #1e90ff;
+}
+
+.play-tip {
+  color: #bfa40d;
+  font-size: 0.95em;
+  letter-spacing: 0.04em;
+}
+
+.restart-btn {
+  margin: 0.9em 0 0.7em 0;
+  color: #fff;
+  background: linear-gradient(89deg, #ff5722 30%, #1e90ff 70%);
+  border: none;
+  border-radius: 10px;
+  padding: 0.65em 2em;
+  font-size: 1.09rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 8px #ff572255;
+  transition: background 0.14s, transform 0.15s;
+}
+.restart-btn:hover, .restart-btn:focus {
+  background: linear-gradient(99deg, #ff7a38 40%, #297de2 70%);
+  transform: translateY(-2px) scale(1.05);
+  outline: none;
+}
+
+@media (max-width: 400px) {
+  .canvas-wrapper {
+    border-radius: 16px;
+  }
+  .getready-panel,
+  .gameover-panel {
+    padding: 1.5rem 0.4rem 1.2rem 0.4rem;
+  }
+}
+
+/* Header and Footer styles (in App) */
+.score-header {
+  width: 100%;
+  padding: 2.5rem 0 0 0;
+  background: none;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.game-title {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 2.5rem;
+  color: #1e90ff;
+  letter-spacing: 0.055em;
+  margin: 0 2.3em 0 0;
+  background: linear-gradient(90deg, #ffeb3b 30%, #1e90ff 65%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+  text-shadow: 0 3px 16px #ccebfa77;
+}
+
+.footer {
+  display: flex;
+  place-content: space-between;
+  flex-flow: row wrap;
+  gap: 1.5em;
+  font-size: 1.03rem;
+  color: #1e90ff;
+  background: none;
+  border-top: 1px solid #e9ecef;
+  margin-top: 2rem;
+  padding: 0.2em 2.4em;
+  min-height: 20px;
+  align-items: center;
+  width: 100%;
+}
+.author-note {
+  color: #ff5722;
+  opacity: 0.65;
+}
+
+/* Responsive: shrink canvas for mobile */
+@media (max-width: 420px) {
+  .canvas-wrapper {
+    width: 99vw;
+    min-width: unset;
+    max-width: 100vw;
+    border-radius: 10px;
+  }
+  .game-title {
+    font-size: 1.45rem;
+    background: linear-gradient(90deg, #ffeb3b 30%, #1e90ff 70%);
+  }
+  .footer {
+    font-size: 0.89rem;
+    padding: 0.1em 0.7em;
+  }
+}
